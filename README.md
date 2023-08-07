@@ -9,6 +9,7 @@ I made another snake game with below feature:
 - kind of clean code
 - RWD
 - touch screen supported
+- use arrow keys to control and space to start/pause/restart the game.
 
 usage:
 
@@ -17,3 +18,5 @@ usage:
   <Snake canvasWidth={10} canvasHeight={10} speed={3} />
 </div>
 ```
+
+Demo:[Demo](https://superyngo.github.io/snake_svelte3/)
