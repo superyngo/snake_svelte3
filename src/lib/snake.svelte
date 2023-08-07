@@ -110,7 +110,7 @@
 
     //set control
     setDirection(e: KeyboardEvent) {
-      e.preventDefault;
+      e.preventDefault();
       if (e.key === " ") {
         switch (snake.status) {
           case this.enumStatus.running:
