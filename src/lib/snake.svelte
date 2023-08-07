@@ -109,7 +109,7 @@
 
     //set control
     setDirection(e: KeyboardEvent) {
-      e.preventDefault();
+      e.key != "F12" && e.preventDefault();
       if (e.key === " ") {
         switch (snake.status) {
           case this.enumStatus.running:
@@ -178,6 +178,25 @@
       }
     }
     touchend(e: TouchEvent) {
+      this.touchParams.clientXStart = null;
+      this.touchParams.clientYStart = null;
+    }
+    mousedown(e: MouseEvent) {
+      this.touchParams.clientXStart = e.clientX;
+      this.touchParams.clientYStart = e.clientY;
+    }
+    mouseup(e: MouseEvent) {
+      const dx = e.clientX - <number>this.touchParams.clientXStart;
+      const dy = e.clientY - <number>this.touchParams.clientYStart;
+
+      const threshold = 50;
+      if (Math.abs(dx) > 50) {
+        const key: string = dx > 0 ? "ArrowRight" : "ArrowLeft";
+        this.setDirection(new KeyboardEvent("keydown", {key}));
+      } else if (Math.abs(dy) > 50) {
+        const key: string = dy > 0 ? "ArrowDown" : "ArrowUp";
+        this.setDirection(new KeyboardEvent("keydown", {key}));
+      }
       this.touchParams.clientXStart = null;
       this.touchParams.clientYStart = null;
     }
@@ -392,6 +411,8 @@
     on:touchmove={(e) => snake.touchmove(e)}
     on:touchend={(e) => snake.touchend(e)}
     on:click={() => snake.start()}
+    on:mousedown={(e) => snake.mousedown(e)}
+    on:mouseup={(e) => snake.mouseup(e)}
     role="button"
     tabindex={0}
     style="grid-template-columns: repeat({canvasWidth}, auto);"
