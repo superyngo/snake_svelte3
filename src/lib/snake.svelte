@@ -165,6 +165,7 @@
       const touch = e.touches[0];
       this.touchParams.clientXStart = touch.clientX;
       this.touchParams.clientYStart = touch.clientY;
+      snake.start();
     }
     touchmove(e: TouchEvent) {
       const touch = e.touches[0];
@@ -391,6 +392,7 @@
     on:touchstart={(e) => snake.touchstart(e)}
     on:touchmove={(e) => snake.touchmove(e)}
     on:touchend={(e) => snake.touchend(e)}
+    on:click={() => snake.start()}
     role="button"
     tabindex={0}
     style="grid-template-columns: repeat({canvasWidth}, auto);"
