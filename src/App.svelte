@@ -9,6 +9,7 @@
 <style>
   .wrapper {
     position: relative;
+    height: 100svh;
     height: 100vh;
   }
 </style>

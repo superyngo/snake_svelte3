@@ -155,10 +155,6 @@
         [this.dimension, this.direction] = temp;
         return;
       }
-      document.documentElement.style.setProperty(
-        "--head-angle",
-        this.headAngle + "deg"
-      );
     }
     touchstart(e: TouchEvent) {
       e.preventDefault();
@@ -401,7 +397,7 @@
       <div class="brick br{index}">
         <!-- show tongue -->
         {#if index === snake.body[0] && snake.status != snake.enumStatus.null}
-          <div class="face">
+          <div class="face" style="rotate:{snake.headAngle}deg">
             <div class="tongue">
               <svg
                 version="1.1"
