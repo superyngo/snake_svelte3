@@ -122,7 +122,7 @@
       }
       if (snake.status != this.enumStatus.running) return;
 
-      const temp: number[] = [this.dimension, this.direction];
+      const temp: number[] = [this.dimension, this.direction, this.headAngle];
       switch (e.key) {
         case "ArrowRight":
           //right
@@ -152,7 +152,7 @@
           break;
       }
       if (this.move("test") === this.body[1]) {
-        [this.dimension, this.direction] = temp;
+        [this.dimension, this.direction, this.headAngle] = temp;
         return;
       }
     }
@@ -269,7 +269,10 @@
       return this.enumStatus.running;
     }
     collapse() {
-      alert(`You loose! Total eaten bricks:${this.body.length}`);
+      setTimeout(
+        () => alert(`You loose! Total eaten bricks:${this.body.length}`),
+        0
+      );
       return this.enumStatus.stopped;
     }
     unshiftTheHead() {
