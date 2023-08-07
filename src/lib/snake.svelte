@@ -20,10 +20,9 @@
       +getComputedStyle(appWrapper).height.replace("px", "") -
       +getComputedStyle(control).height.replace("px", "") -
       +getComputedStyle(appWrapper).padding.replace("px", "") * 4;
-    const canvasWidthPx: number = +getComputedStyle(appWrapper).width.replace(
-      "px",
-      ""
-    );
+    const canvasWidthPx: number =
+      +getComputedStyle(appWrapper).width.replace("px", "") -
+      +getComputedStyle(appWrapper).padding.replace("px", "") * 4;
     const unit: number = Math.min(
       canvasHeightPx / canvasHeight,
       canvasWidthPx / canvasWidth
