@@ -182,6 +182,7 @@
       this.touchParams.clientYStart = null;
     }
     mousedown(e: MouseEvent) {
+      e.preventDefault();
       this.touchParams.clientXStart = e.clientX;
       this.touchParams.clientYStart = e.clientY;
     }
